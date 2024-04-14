@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titles}}</title>
+</head>
+<body>
+        <h1> {{titles}}</h1>
+        <select name="select">
+            {% for obj in objs %}
+            <option value="value1">{{obj.name}}</option>
+            {% endfor %}
+          </select>
+          <select name="select2">
+            {% for spot in spots %}
+            <option value="value2">{{spot.name}}</option>
+            {% endfor %}
+          </select>
+        
+    <!-- <select name="select">
+        <option value="value1">{{design_object.name}}</option>
+        <option value="value2" selected>{{design_object.name}}</option>
+        <option value="value3">{{design_object.name}}</option>
+      </select> -->
+</body>
+</html>
