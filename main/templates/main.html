@@ -6,17 +6,28 @@
     <title>{{titles}}</title>
 </head>
 <body>
-        <h1> {{titles}}</h1>
-        <select name="select">
-            {% for obj in objs %}
-            <option value="value1">{{obj.name}}</option>
-            {% endfor %}
-          </select>
-          <select name="select2">
+        {% for task in tasks %}
+          <!-- {% if i=1} -->
+        <p> {{task.data}} 
+          <!-- break -->
+        {% endfor %} </p>
+        <p> <select name="select">
+          {% for obj in objs %}
+          <option value="value1">{{obj.name}}</option>
+          {% endfor %}
+        </select>
+        </p>
+          <p><select spot="select2">
             {% for spot in spots %}
-            <option value="value2">{{spot.name}}</option>
+            <option value="value2">{{spot.spot}}</option>
             {% endfor %}
           </select>
+        </p>
+        <form action="" method="post">
+          {% csrf_token %}
+          {{form1.as_p}}
+        </form>
+
         
     <!-- <select name="select">
         <option value="value1">{{design_object.name}}</option>

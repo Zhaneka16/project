@@ -47,7 +47,7 @@ class Design_object(models.Model):
 
 
 class Spot(models.Model):
-    design_objects = models.ForeignKey(to=Design_object, on_delete=models.PROTECT, related_name='spots')
+    design_objects = models.ForeignKey(to=Design_object, on_delete=models.CASCADE, related_name='spots')
     spot = models.CharField(max_length=255)
 
     def __str__(self):
@@ -63,6 +63,7 @@ class Task(models.Model):
     data = models.DateTimeField(auto_now_add=True)
     application_completed = models.BooleanField(blank=True, null=True)
     design_objects_type = models.ManyToManyField(to=Design_object)
+    description = models.CharField(max_length=255, null = True)
 
     def __str__(self):
         return self.type_task
@@ -70,3 +71,7 @@ class Task(models.Model):
     class Meta:
         verbose_name = 'Задание'
         verbose_name_plural = 'Задания'
+
+
+class UploadFiles(models.Model):
+    file = models.FileField(upload_to='uploads_model')
